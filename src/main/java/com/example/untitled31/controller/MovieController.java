@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -48,5 +49,12 @@ public class MovieController {
         movie.setReleaseYear(movieDto.getReleaseYear());
 
         return movieService.update(id, movie);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        movieService.delete(id);
+
+        return ResponseEntity.noContent().build();      // 삭제해서 응답할 값이 사라져서 이렇게 처리
     }
 }

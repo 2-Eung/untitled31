@@ -20,10 +20,6 @@ public class MovieService {
         return movieRepository.findAll(pageable);
     }
 
-
-
-
-
     public Movie create(Movie movie) {
         return movieRepository.save(movie); //  save 를 실행해서 무비 객체를 전달한다.
     }
@@ -40,5 +36,9 @@ public class MovieService {
         existMovie.setReleaseYear(movie.getReleaseYear());
 
         return movieRepository.save(existMovie);            // 받아온것을 save 에 던진다
+    }
+
+    public void delete(Long id) {
+        movieRepository.deleteById(id);
     }
 }
