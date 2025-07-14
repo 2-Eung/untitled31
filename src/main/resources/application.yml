@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: movie_review
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}   # 데이터 베이스와 연결해라
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:              # 데이터 베이스를 자동으로 업데이트해라
+      ddl-auto: update
+    show-sql: true          # 니가 한 작업물을 나한테 보여줘라
+
+
+
